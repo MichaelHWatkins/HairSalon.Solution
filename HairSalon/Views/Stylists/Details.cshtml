@@ -1,6 +1,20 @@
-@model HairSalon.Models.Stylist
-
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
 <h2>Stylist Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+
+  <h2>Clients</h2>
+  @if(Model != null)
+  {
+    <ol>
+    @foreach (Client client in Model.Clients)
+    {
+      <li>@client.ClientName</li>
+    }
+    </ol>
+  }
+  
+
+<p>@Html.ActionLink("Add a Client", "Create", "Clients")</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
